@@ -5,7 +5,7 @@ const Login = () => {
     return (
         <div className='h-[800px] flex justify-center items-center'>
             <div className='w-96 p-7'>
-                <h2 className='text-xl text-center'>Login</h2>
+                <h2 className='text-xl text-center red'>Login</h2>
                 <form >
                     <div className="w-full max-w-xs form-control">
                         <label className="label"> <span className="label-text">Email</span></label>

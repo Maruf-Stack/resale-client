@@ -12,7 +12,7 @@ const Navbar = () => {
     </>
     return (
         <div className=''>
-            <div className="flex justify-between navbar bg-base-100">
+            <div className="flex justify-between navbar">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label htmlFor='menu' tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -24,18 +24,15 @@ const Navbar = () => {
                             }
                         </ul>
                     </div>
-                    <Link to='/' className="text-xl normal-case btn btn-ghost">Website Name</Link>
+                    <Link to='/' className="text-xl normal-case btn btn-ghost">Bus selling BD</Link>
                 </div>
                 <div className="hidden navbar-center lg:flex">
-                    <ul className="p-0 menu menu-horizontal">
+                    <ul className="p-0 menu menu-horizontal text-red">
                         {
                             menu
                         }
                     </ul>
                 </div>
-                <label htmlFor="dashboard-drawer" tabIndex={0} className="btn btn-ghost lg:hidden">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
-                </label>
 
             </div>
         </div>

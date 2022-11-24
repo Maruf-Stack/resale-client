@@ -5,6 +5,12 @@ module.exports = {
   ],
   theme: {
     extend: {},
+
+    themes: [
+      {
+
+      }
+    ]
   },
   plugins: [require("daisyui")],
 }
