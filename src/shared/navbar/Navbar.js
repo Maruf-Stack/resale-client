@@ -1,17 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './navbar.css'
 
 const Navbar = () => {
     const menu = <>
         <li><Link to='/'>Home</Link></li>
-        <li><Link to=''>appoinment</Link></li>
-        <li><Link to=''>about</Link></li>
+        <li><Link to=''>Blog</Link></li>
         <li><Link to="">Dashboard</Link></li>
         <li><button>Sign out</button></li>
         <li><Link to="/login">Login</Link></li>
     </>
     return (
-        <div className=''>
+        <div className='nav'>
             <div className="flex justify-between navbar">
                 <div className="navbar-start">
                     <div className="dropdown">
