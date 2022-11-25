@@ -5,7 +5,7 @@ import './navbar.css'
 const Navbar = () => {
     const menu = <>
         <li><Link to='/'>Home</Link></li>
-        <li><Link to=''>Blog</Link></li>
+        <li><Link to='/blog'>Blog</Link></li>
         <li><Link to="">Dashboard</Link></li>
         <li><Link>Sign out</Link></li>
         <li><Link to="/login">Login</Link></li>
