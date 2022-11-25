@@ -4,26 +4,26 @@
         "image": "https://porzoton.com/wp-content/uploads/2021/01/Hanif-Enterprise-Dhaka-to-Chittagong-Counter.jpg",
         "products": [
             {
-                "name": "",
-                "image": "",
-                "location": "",
-                "resale-price": "",
-                "original-price": "",
-                "years of use": "",
-                "post-time": "",
-                "seller-name": "",
-                "varified": ""
+                "name": "Hanif volvo",
+                "image": "https://www.hanif-enterprise.com/img/busowners/subdomain/hanif-enterprise-khulna/slider-banner/5.png",
+                "location": "Gabtoli,Dhaka",
+                "resale-price": "80lak",
+                "original-price": "1.2crore",
+                "years of use": "3",
+                "post-time": "10 Oct,2022",
+                "seller-name": "Rahim Miya",
+                "varified": true
             },
             {
-                "name": "",
-                "image": "",
-                "location": "",
-                "resale-price": "",
-                "original-price": "",
-                "years of use": "",
-                "post-time": "",
-                "seller-name": "",
-                "varified": ""
+                "name": "Hanif 1J",
+                "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_iAqgBb7qmJpHOIZtPmxhpXO1buvVS-Ufo8PWvk73etuojTYBx9VX-BQTvQgshoSob2k&usqp=CAU",
+                "location": "Sayedabad,Dhaka",
+                "resale-price": "85lak",
+                "original-price": "1.5crore",
+                "years of use": "2.5",
+                "post-time": "15 Sep,2022",
+                "seller-name": "Karim Miya",
+                "varified": true
             }
         ]
     },
@@ -32,26 +32,26 @@
         "image": "https://travelinfo.com.bd/wp-content/uploads/2022/01/%E0%A6%9C%E0%A6%A8%E0%A6%BE%E0%A6%AC-%E0%A6%93%E0%A6%AE%E0%A6%B0-%E0%A6%AB%E0%A6%BE%E0%A6%B0%E0%A7%81%E0%A6%95-1.jpg",
         "products": [
             {
-                "name": "",
-                "image": "",
-                "location": "",
-                "resale-price": "",
-                "original-price": "",
-                "years of use": "",
-                "post-time": "",
-                "seller-name": "",
-                "varified": ""
+                "name": "Nabil scania",
+                "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCspV43LiFHG7jt7qh2lT_x6BAaT80gK24ugUHm38OK3NpIo5PZoMy1rIjPOLCliFzTpg&usqp=CAU",
+                "location": "Setabganj,Rangpu",
+                "resale-price": "90lak",
+                "original-price": "1.3crore",
+                "years of use": "3",
+                "post-time": "16 Oct,2022",
+                "seller-name": "Jamal Miya",
+                "varified": false
             },
             {
-                "name": "",
-                "image": "",
-                "location": "",
-                "resale-price": "",
-                "original-price": "",
-                "years of use": "",
-                "post-time": "",
-                "seller-name": "",
-                "varified": ""
+                "name": "Nabil Hundai",
+                "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4FEpI1rmltjxhCxtw6SAeUs7c_MYludjq2h_gS7n8dWjUKmynNHa1zFSRq9FsxgaI3NU&usqp=CAU",
+                "location": "Bus stant,Khulna",
+                "resale-price": "70lak",
+                "original-price": "1.1crore",
+                "years of use": "2",
+                "post-time": "14 Sep,2022",
+                "seller-name": "Kamal Miya",
+                "varified": true
             }
         ]
     },
@@ -60,26 +60,26 @@
         "image": "https://bd-info.com/wp-content/uploads/2022/11/ena-transport.jpg",
         "products": [
             {
-                "name": "",
-                "image": "",
-                "location": "",
-                "resale-price": "",
-                "original-price": "",
-                "years of use": "",
-                "post-time": "",
-                "seller-name": "",
-                "varified": ""
+                "name": "Ena Hundai",
+                "image": "https://novorup.com/wp-content/uploads/2020/12/ena-paribhon.jpg",
+                "location": "Bus stand,Barishal",
+                "resale-price": "95lak",
+                "original-price": "1.35crore",
+                "years of use": "2.5",
+                "post-time": "10 Nov,2022",
+                "seller-name": "Akbor Ali",
+                "varified": false
             },
             {
-                "name": "",
-                "image": "",
-                "location": "",
-                "resale-price": "",
-                "original-price": "",
-                "years of use": "",
-                "post-time": "",
-                "seller-name": "",
-                "varified": ""
+                "name": "Ena 1J",
+                "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGMXCop_GKcIGDUyRHp_qIqvetqhIafWa8mw&usqp=CAU",
+                "location": "Main town,Sylhet",
+                "resale-price": "1crore",
+                "original-price": "1.5crore",
+                "years of use": "1.5",
+                "post-time": "30 Oct,2022",
+                "seller-name": "Folze Miya",
+                "varified": true
             }
         ]
     }

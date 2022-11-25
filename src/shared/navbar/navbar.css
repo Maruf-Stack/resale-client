@@ -3,3 +3,18 @@
     top: 0;
     background-color: white;
 }
+
+.lgmenu {
+    color: rgba(0, 0, 0, 0.863);
+}
+
+.lgmenu a:hover {
+    color: red;
+    background-color: white;
+}
+
+.smmenu {
+    background-color: #03203C;
+    color: whitesmoke;
+    padding: 10px;
+}
