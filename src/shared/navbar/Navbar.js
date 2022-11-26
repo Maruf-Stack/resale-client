@@ -1,14 +1,32 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthProvider';
 import './navbar.css'
 
 const Navbar = () => {
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(err => console.log(err));
+        toast.success("Log out successfull")
+    }
     const menu = <>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/blog'>Blog</Link></li>
-        <li><Link to="">Dashboard</Link></li>
-        <li><Link>Sign out</Link></li>
-        <li><Link to="/login">Login</Link></li>
+        {
+            user?.uid ?
+                <>
+                    <li><Link to="">Dashboard</Link></li>
+                    <li><Link onClick={handleLogOut}>Sign out</Link></li>
+                </> :
+                <li><Link to="/login">Login</Link></li>
+        }
+
+
+
     </>
     return (
         <div className='lg:p-6 nav'>

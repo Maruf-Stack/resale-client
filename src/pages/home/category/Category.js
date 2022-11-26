@@ -15,7 +15,7 @@ const Category = () => {
             </div>
             <div className='grid grid-cols-1 lg:grid-cols-3 mt-9'>
                 {
-                    catagories.map(category => <Single category={category}></Single>)
+                    catagories.map((category, i) => <Single category={category} key={i + 1}></Single>)
                 }
             </div>
         </div>
