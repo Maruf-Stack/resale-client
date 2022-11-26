@@ -15,7 +15,7 @@ const DetailsOfCategory = ({ product, setBooking }) => {
                     <p>Post time : {posttime}</p>
                     <p className='font-semibold text-black'>Seller name : {sellername}</p>
                     <div className="justify-end card-actions">
-                        <label htmlFor="booking" className="text-white btn btn-primary">Book this bus</label>
+                        <label htmlFor="booking" className="text-white btn btn-primary" onClick={() => setBooking(product)}>Book this bus</label>
                     </div>
                 </div>
             </div>

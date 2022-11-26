@@ -15,7 +15,12 @@ const DetailsCategory = () => {
                     products.map((product, i) => <DetailsOfCategory key={i + 1} product={product} setBooking={setBooking}></DetailsOfCategory>)
                 }
             </div>
-            <Modal></Modal>
+            {
+                booking &&
+                <Modal booking={booking}>
+
+                </Modal>
+            }
         </div>
     );
 };

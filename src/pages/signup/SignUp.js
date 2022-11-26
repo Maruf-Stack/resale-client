@@ -63,7 +63,7 @@ const SignUp = () => {
                     </div>
                     <div className='mt-3'>
                         <label htmlFor='option' className='text-sky-500'>Create accout as a :  </label>
-                        <select name="option" id="option" {...register("option", {
+                        <select className='w-full max-w-xs select select-primary' name="option" id="option" {...register("option", {
 
                         })}>
                             <option value="user" className='text-black'>User</option>
