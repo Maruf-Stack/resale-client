@@ -1,30 +1,39 @@
-import React, { useContext, useState } from 'react';
+import { data } from 'autoprefixer';
+import React, { useContext, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { FcGoogle } from 'react-icons/fc';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
+import useToken from '../../hook/useToken';
 
 const SignUp = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const { createUser, updateUser } = useContext(AuthContext)
     const [signUpError, setSignUPError] = useState('')
     const navigate = useNavigate();
+    const [createdEmail, setCreatedEmail] = useState('')
+    const [token] = useToken(createdEmail)
+
+    useEffect(() => {
+        if (token) {
+            navigate('/')
+        }
+    }, [navigate, token])
 
     const handleSignUp = (data) => {
-        console.log(data)
         setSignUPError('');
         createUser(data.email, data.password)
             .then(result => {
                 const user = result.user;
-                console.log(user);
                 toast.success('User Created Successfully')
                 const userInfo = {
                     displayName: data.name
                 }
+
                 updateUser(userInfo)
                     .then(() => {
-                        navigate('/');
+                        saveBuyerInfo(data.name, data.email, data.role, data.password)
                     })
                     .catch(err => console.log(err));
             })
@@ -33,6 +42,24 @@ const SignUp = () => {
                 setSignUPError(error.message)
             });
     }
+    const saveBuyerInfo = (name, email, role, password) => {
+        const user = { name, email, role, password }
+
+        fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(data => {
+                setCreatedEmail(email)
+
+            })
+
+    }
+
     return (
         <div className='h-[800px] flex justify-center items-center'>
             <div className='w-96 p-7'>
@@ -62,8 +89,8 @@ const SignUp = () => {
                         {errors.password && <p className='text-red-500'>{errors.password.message}</p>}
                     </div>
                     <div className='mt-3'>
-                        <label htmlFor='option' className='text-sky-500'>Create accout as a :  </label>
-                        <select className='w-full max-w-xs select select-primary' name="option" id="option" {...register("option", {
+                        <label htmlFor='role' className='text-sky-500'>Create accout as a :  </label>
+                        <select className='w-full max-w-xs select select-primary' name="role" id="role" {...register("role", {
 
                         })}>
                             <option value="user" className='text-black'>User</option>

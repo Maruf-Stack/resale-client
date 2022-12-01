@@ -1,9 +1,10 @@
+import { data } from 'autoprefixer';
 import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../context/AuthProvider';
 
 const Modal = ({ booking, product, setBooking }) => {
-
+    console.log(product.image)
     const { user } = useContext(AuthContext)
     const { resaleprice } = product
     const { name } = booking;
@@ -23,10 +24,25 @@ const Modal = ({ booking, product, setBooking }) => {
             brandName,
             price,
             number,
-            location
+            location,
+            img: product.image
+
         }
-        setBooking(null)
-        toast.success('Submit successfull')
+
+        fetch('http://localhost:5000/bookings', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(booking)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                setBooking(null)
+                toast.success('Booking successfull')
+            })
+
     }
 
     return (

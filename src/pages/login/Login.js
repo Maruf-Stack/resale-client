@@ -1,30 +1,39 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc'
 import { AuthContext } from '../../context/AuthProvider';
 import toast from 'react-hot-toast';
 import { GoogleAuthProvider } from 'firebase/auth';
+import useToken from '../../hook/useToken';
 
 const Login = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
     const { signIn } = useContext(AuthContext)
+    const { google } = useContext(AuthContext)
     const [loginError, setLoginError] = useState('');
+    const [userEmail, setUserEmail] = useState('');
+    const [token] = useToken(userEmail)
     const location = useLocation()
     const navigate = useNavigate();
     const googleProvider = new GoogleAuthProvider();
-    const { google } = useContext(AuthContext)
 
-    const from = location.state?.from?.pathname || '/';
+
+    useEffect(() => {
+        const from = location.state?.from?.pathname || '/';
+        if (token) {
+            navigate(from, { replace: true });
+        }
+    }, [location.state?.from?.pathname, navigate, token])
 
     const handleLogin = data => {
-        console.log(data);
         setLoginError('');
         signIn(data.email, data.password)
             .then(result => {
                 const user = result.user;
+                setUserEmail(data.email)
                 toast.success("Log in success")
-                navigate(from, { replace: true });
+
             })
             .catch(error => {
                 console.log(error.message)
@@ -34,7 +43,13 @@ const Login = () => {
     const googleLogin = () => {
         google(googleProvider)
             .then(result => {
-                const user = result.user;
+                const name = result.user.displayName;
+                const email = result.user.email;
+                const role = "user";
+                const user = {
+                    name, email, role
+                }
+                saveBuyerInfo(user)
                 toast.success("Successfully log in")
                 navigate('/')
             })
@@ -42,6 +57,23 @@ const Login = () => {
                 console.error(error)
                 toast.error("Failed")
             })
+    }
+    const saveBuyerInfo = (user) => {
+        const email = user.email
+
+        fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(data => {
+                setUserEmail(email)
+
+            })
+
     }
     return (
         <div className='h-[800px] flex justify-center items-center'>
