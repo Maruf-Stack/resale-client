@@ -22,6 +22,7 @@ const Dashboard = () => {
                     <ul className="p-4 menu w-80 bg-base-100 text-base-content">
 
                         {
+
                             !isSeller & !isAdmin &&
                             <li><Link to='/dashboard'>My orders</Link></li>
                         }

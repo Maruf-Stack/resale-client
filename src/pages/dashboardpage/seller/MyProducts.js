@@ -1,16 +1,18 @@
 import { useQuery } from '@tanstack/react-query';
 import { data } from 'autoprefixer';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
+import { AuthContext } from '../../../context/AuthProvider';
 import Loading from '../../../shared/loading/Loading';
 
 const MyProducts = () => {
-    const [deleteProduct, setDeleteProduct] = useState(null)
+    const { user } = useContext(AuthContext)
+    // const [deleteProduct, setDeleteProduct] = useState(null)
     const { data: myproducts, isLoading, refetch } = useQuery({
         queryKey: ['myproducts'],
         queryFn: async () => {
             try {
-                const res = await fetch('http://localhost:5000/myproducts', {
+                const res = await fetch(`https://resale-server-nine.vercel.app/myproducts/${user.email}`, {
                     headers: {
                         authorization: `bearer ${localStorage.getItem('accessToken')}`
                     }
@@ -23,7 +25,7 @@ const MyProducts = () => {
         }
     })
     const handleDeleteProduct = product => {
-        fetch(`http://localhost:5000/myproducts/${product._id}`, {
+        fetch(`https://resale-server-nine.vercel.app/myproducts/${product._id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -32,7 +34,7 @@ const MyProducts = () => {
             .then(res => res.json())
             .then(result => {
                 if (result.deletedCount > 0) {
-                    toast.success(`${product.name} deleted successfully`)
+                    toast.success(`${product.name}deleted successfully`)
                     refetch()
                 }
 
@@ -70,7 +72,7 @@ const MyProducts = () => {
                                     </div>
                                 </div></td>
                                 <td>{myproduct.name}</td>
-                                <td>Quality Control Specialist</td>
+                                <td>available</td>
                                 <td>{myproduct.price}</td>
                                 <td>{myproduct.category}</td>
                                 <td><button onClick={() => handleDeleteProduct(myproduct)} className='btn btn-error btn-sm'>delete</button></td>

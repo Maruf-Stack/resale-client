@@ -12,7 +12,7 @@ const Users = () => {
         }
     });
     const handleDeleteUsers = user => {
-        fetch(`http://localhost:5000/user/${user._id}`, {
+        fetch(`https://resale-server-nine.vercel.app/user/${user._id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`

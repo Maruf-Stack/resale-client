@@ -5,9 +5,10 @@ import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 // import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
-// import { AuthContext } from '../../../context/AuthProvider';
+import { AuthContext } from '../../../context/AuthProvider';
 
 const AddProducts = () => {
+    const { user } = useContext(AuthContext)
     const { register, handleSubmit, formState: { errors } } = useForm();
     const navigate = useNavigate();
     const imgHostingKey = '486c62cd4804620f99bf01432d3e9e6d';
@@ -27,15 +28,17 @@ const AddProducts = () => {
                 setimg(imgdata)
             })
 
-        const name = data.name;
-        const price = data.price;
-        const condition = data.condition;
-        const phoneNumber = data.phoneNumber;
-        const location = data.location;
-        const category = data.category;
-        const describtion = data.describtion;
-        const used = data.used;
+        const name = data?.name;
+        const price = data?.price;
+        const condition = data?.condition;
+        const phoneNumber = data?.phoneNumber;
+        const location = data?.location;
+        const category = data?.category;
+        const describtion = data?.describtion;
+        const used = data?.used;
+        const email = user.email;
         const productDetail = {
+            email,
             image,
             name,
             price,
@@ -46,7 +49,7 @@ const AddProducts = () => {
             describtion,
             used,
         }
-        fetch('http://localhost:5000/myproducts', {
+        fetch('https://resale-server-nine.vercel.app/myproducts', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -72,6 +75,7 @@ const AddProducts = () => {
                     })} className="w-full max-w-xs input input-bordered" />
                     {errors.name && <p className='text-red-500'>{errors.name.message}</p>}
                 </div>
+
                 <div className="w-full max-w-xs form-control">
                     <label className="label"> <span className="label-text">Price</span></label>
                     <input type="text" {...register("price", {

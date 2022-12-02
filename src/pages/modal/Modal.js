@@ -4,7 +4,6 @@ import toast from 'react-hot-toast';
 import { AuthContext } from '../../context/AuthProvider';
 
 const Modal = ({ booking, product, setBooking }) => {
-    console.log(product.image)
     const { user } = useContext(AuthContext)
     const { resaleprice } = product
     const { name } = booking;
@@ -38,7 +37,6 @@ const Modal = ({ booking, product, setBooking }) => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 setBooking(null)
                 toast.success('Booking successfull')
             })
