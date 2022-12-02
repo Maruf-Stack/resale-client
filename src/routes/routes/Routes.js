@@ -32,7 +32,7 @@ export const router = createBrowserRouter([
                 element: <SignUp></SignUp>
             }, {
                 path: '/categories/:id',
-                loader: ({ params }) => fetch(`http://localhost:5000/categories/${params.id}`),
+                loader: ({ params }) => fetch(`https://resale-server-nine.vercel.app/categories/${params.id}`),
                 element: <Private><DetailsCategory></DetailsCategory></Private>
             }, {
                 path: '/blog',

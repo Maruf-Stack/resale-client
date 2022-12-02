@@ -1,16 +1,33 @@
 import React from 'react';
 import { useQuery } from '@tanstack/react-query';
+import toast from 'react-hot-toast';
 
 
 const Allseller = () => {
-    const { data: users = [] } = useQuery({
+    const { data: users = [], refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/users');
+            const res = await fetch('https://resale-server-nine.vercel.app/users');
             const data = await res.json();
             return data;
         }
     });
+    const handleDeleteUsers = user => {
+        fetch(`http://localhost:5000/user/${user._id}`, {
+            method: 'DELETE',
+            headers: {
+                authorization: `bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+            .then(res => res.json())
+            .then(result => {
+                if (result.deletedCount > 0) {
+                    toast.success(`${user.name} deleted successfully`)
+                    refetch()
+                }
+
+            })
+    }
 
     return (
         <div>
@@ -34,8 +51,8 @@ const Allseller = () => {
                                         <th>{i + 1}</th>
                                         <td>{user?.name}</td>
                                         <td>{user?.email}</td>
-                                        {/* <td>{user?.role !== 'admin' && <button onClick={() => makeAdmit(user._id)} className='px-5 btn btn-success'>Make admin</button>}</td> */}
-                                        <td><button className='px-5 btn btn-error'>Delete</button></td>
+
+                                        <td><button onClick={() => handleDeleteUsers(user)} className='px-5 btn btn-error'>Delete</button></td>
                                     </tr>
                             })
                         }

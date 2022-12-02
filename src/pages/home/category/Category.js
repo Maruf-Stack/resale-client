@@ -7,7 +7,7 @@ const Category = () => {
     const [catagories, setCatagories] = useState([])
     const { loading } = useContext(AuthContext)
     useEffect(() => {
-        fetch('http://localhost:5000/categories')
+        fetch('https://resale-server-nine.vercel.app/categories')
             .then(res => res.json())
             .then(data => {
                 if (loading) {
