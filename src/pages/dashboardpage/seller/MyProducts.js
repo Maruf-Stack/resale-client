@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { data } from 'autoprefixer';
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../../context/AuthProvider';
 import Loading from '../../../shared/loading/Loading';
@@ -45,7 +45,6 @@ const MyProducts = () => {
     }
     return (
         <div>
-            <h2>My products{myproducts?.length}</h2>
             <div className="overflow-x-auto">
                 <table className="table w-full table-zebra">
 

@@ -41,8 +41,9 @@ const Navbar = () => {
                                 menu
                             }
                         </ul>
+
                     </div>
-                    <Link to='/' className="text-2xl font-bold normal-case text-sky-400">Bus selling BD</Link>
+                    <Link to='/' className="text-xl font-bold normal-case lg:text-2xl text-sky-400">Bus selling BD</Link>
                 </div>
                 <div className="hidden navbar-center lg:flex">
                     <ul className="p-0 font-semibold menu menu-horizontal lgmenu">
@@ -53,6 +54,7 @@ const Navbar = () => {
                 </div>
 
             </div>
+            <label htmlFor="dashboard-drawer" className="mt-4 lg:hidden btn btn-primary drawer-button">My tools</label>
         </div>
     );
 };
